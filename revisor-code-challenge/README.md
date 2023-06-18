@@ -15,8 +15,8 @@ Included is a node.js web service to use for one of the page elements.
 ## Form contains the following elements:
 
 [] A required field for the usesr to provide their full name
-    [] restricted to max 100 characters
-    [] only allow alpha, spaces, hyphens, apostrophes
+    [x] restricted to max 100 characters
+    [x] only allow alpha, spaces, hyphens, apostrophes
     [] if it doesn't validate, place a red error message near the field name
 
 [] A required field for the user to provide their email address

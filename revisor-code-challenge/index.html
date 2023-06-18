@@ -21,7 +21,7 @@
                 <div class="form-item">
                     <label for="name">Name (required)</label>
                     <br />
-                    <input type="text" id="name" name="name" required />
+                    <input type="text" id="name" name="name" maxlength="100" pattern="[A-Za-z\s\-']+" required />
                 </div>
                 <div class="form-item">
                     <label for="email">Email (required)</label>
@@ -44,4 +44,5 @@
             </form>
         </section>
     </body>
+	<script src="script.js"></script>
 </html>
