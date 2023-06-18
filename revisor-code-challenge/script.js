@@ -1,24 +1,37 @@
+let users;
+
+const sortUsers = (usersJson) => {
+    const sortedUsers = usersJson.sort((a, b) => {
+        const lastNameA = a.name.split(" ").pop();
+        const lastNameB = b.name.split(" ").pop();
+
+        return lastNameA.localeCompare(lastNameB); // Compare and sort based on the last name
+    });
+
+    users = sortedUsers;
+    console.log(users);
+};
+
 // On load, fetch users from web service
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
     fetch("http://localhost:3000/users")
-        .then(function (response) {
+        .then((response) => {
             if (response.ok) {
                 return response.json();
             } else {
                 throw new Error("Error: " + response.status);
             }
         })
-        .then(function (data) {
-            console.log(data); // Do something with the retrieved data
+        .then((data) => {
+            sortUsers(data);
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.error("Error:", error);
         });
 });
 
 function submitForm() {
     console.log("submitForm fired");
-    fetch("http://localhost:3000/users");
 }
 
 const nameInput = document.getElementById("name");
