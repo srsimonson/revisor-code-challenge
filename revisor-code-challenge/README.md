@@ -14,13 +14,13 @@ Included is a node.js web service to use for one of the page elements.
 
 ## Form contains the following elements:
 
-[] A required field for the usesr to provide their full name
+[x] A required field for the usesr to provide their full name
     [x] restricted to max 100 characters
     [x] only allow alpha, spaces, hyphens, apostrophes
-    [] if it doesn't validate, place a red error message near the field name
+    [x] if it doesn't validate, place a red error message near the field name
 
-[] A required field for the user to provide their email address
-    [] validate that the email address is of the correct format
+[x] A required field for the user to provide their email address
+    [x] validate that the email address is of the correct format
 
 [] An optional field for the user to select a person from a list that is referred them
     [] On page load, populate the list of people from a call to the provided web service (http://localhost:3000/users)
