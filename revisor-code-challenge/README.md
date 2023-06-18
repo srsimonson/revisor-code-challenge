@@ -1,10 +1,10 @@
 # Installation instructions
 
-* install Node.js if needed at https://nodejs.org/en/download/
-* navigate to the project top level (the folder `package.json` is in) and type `npm install`
-* cd into `/server` type `node index.js`. You should see a message that the server is running.
-* leave the server running when you work on your code challenge. you don't need to modify the server in any way.
-* when you are ready to submit, delete the `node_modules` folder.
+[x] install Node.js if needed at https://nodejs.org/en/download/
+[x] navigate to the project top level (the folder `package.json` is in) and type `npm install`
+[x] cd into `/server` type `node index.js`. You should see a message that the server is running.
+[] leave the server running when you work on your code challenge. you don't need to modify the server in any way.
+[] when you are ready to submit, delete the `node_modules` folder.
 
 # PDF Instructions
 
@@ -41,7 +41,7 @@ Included is a node.js web service to use for one of the page elements.
 
 See `Instructions.pdf`
 
-The Revisor's Office is a nonpartisan office of the Minnesota Legislature. The office provides
+[x] The Revisor's Office is a nonpartisan office of the Minnesota Legislature. The office provides
 confidential drafting services of legislative and administrative documents. Since its founding in
 1939, the office has served as the compiler of Minnesota Statutes and is the official publisher of
 Minnesota Statutes, Laws, and Rules.
