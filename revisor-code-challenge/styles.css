@@ -3,9 +3,32 @@
     border-radius: 10px;
     padding: 16px;
     line-height: 1.2;
+    width: 50%;
+    margin: 20px;
 }
 
 .signup-form {
+    border: 1px solid blue;
+    padding: 2px;
+    width: 50%;
+    margin: 20px;
+}
+
+.form-item {
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    border: 1px solid green;
+    padding: 2px;
+    display: flex;
+}
+
+body {
     border: 1px solid red;
     padding: 2px;
 }

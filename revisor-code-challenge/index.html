@@ -8,14 +8,40 @@
     </head>
     <body>
         <h1>Join the Revisor's Office today!</h1>
-        <p class="about">
-            The Revisor's Office is a nonpartisan office of the Minnesota
-            Legislature. The office provides confidential drafting services of
-            legislative and administrative documents. Since its founding in
-            1939, the office has served as the compiler of Minnesota Statutes
-            and is the official publisher of Minnesota Statutes, Laws, and
-            Rules.
-        </p>
-        <form class="signup-form"></form>
+        <section>
+            <p class="about">
+                The Revisor's Office is a nonpartisan office of the Minnesota
+                Legislature. The office provides confidential drafting services
+                of legislative and administrative documents. Since its founding
+                in 1939, the office has served as the compiler of Minnesota
+                Statutes and is the official publisher of Minnesota Statutes,
+                Laws, and Rules.
+            </p>
+            <form class="signup-form">
+                <div class="form-item">
+                    <label for="name">Name (required)</label>
+                    <br />
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-item">
+                    <label for="email">Email (required)</label>
+                    <br />
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-item">
+                    <label for="referrer">Referrer:</label>
+                    <br />
+                    <select id="referrer" name="referrer" required>
+                        <option disabled selected>choose person</option>
+                        <option value="Steve">Steve</option>
+                        <option value="Gonxhe">Gonxhe</option>
+                        <option value="Yakki">Yakki</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </section>
     </body>
 </html>
