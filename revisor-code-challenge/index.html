@@ -25,6 +25,7 @@
                         type="text"
                         id="name"
                         name="name"
+						placeholder="full name"
                         maxlength="100"
                         pattern="[A-Za-z\s\-']+"
                         required
@@ -37,6 +38,7 @@
                     <input
                         type="email"
                         id="email"
+						placeholder="email address"
                         name="email"
                         pattern="/^(?!\.)[a-zA-Z0-9_\.\-]+@(?!-)[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)*(\.[a-zA-Z]{2,})$/"
                         required
@@ -47,7 +49,14 @@
                     <br />
                     <select id="referrer" name="referrer"></select>
                     <div>
-                        <input type="text" id="other" name="other" />
+                        <input
+                            type="text"
+                            id="other"
+                            placeholder="Who referred you?"
+                            name="other"
+                            maxlength="100"
+                            pattern="[A-Za-z\s\-']+"
+                        />
                     </div>
                 </div>
                 <div class="form-item">

@@ -32,7 +32,6 @@ const sortUsers = (usersJson) => {
     });
 
     users = sortedUsers;
-    console.log(users);
 };
 
 /**
@@ -45,6 +44,7 @@ const populateSelectOptions = (sortedUsers) => {
     // Create "choose person" option
     const choosePersonLabel = document.createElement("option");
     choosePersonLabel.text = "Choose person";
+    choosePersonLabel.value = null;
     selectReferrer.add(choosePersonLabel);
 
     // Loop through sorted users and create options
@@ -71,7 +71,6 @@ const populateSelectOptions = (sortedUsers) => {
     });
 };
 
-
 /**
  * Add red dot to name validation failure
  */
@@ -89,19 +88,41 @@ nameInput.addEventListener("input", () => {
     }
 });
 
-
 /**
  * Submit form
  */
 const submitForm = () => {
+    const nameField = document.getElementById("name");
+    const nameValue = nameField.value;
+    
+    const emailField = document.getElementById("email");
+    const emailValue = emailField.value;
+
+    const referrerField = document.getElementById("referrer");
+
+    const otherField = document.getElementById("other");
+
+    let referrerValue;
+
+
+    if (referrerField.value === 'other') {
+        referrerValue = otherField.value;
+    } else {
+        referrerValue = referrerField.value;
+    }
+
+    const completedForm = {
+        name: nameValue.trim(),
+        email: emailValue.trim(),
+        referrer: '' + referrerValue.trim()
+    }
+
     const requestOptions = {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            /* your request body data here */
-        }),
+        body: JSON.stringify(completedForm),
     };
 
     console.log(requestOptions);
