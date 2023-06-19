@@ -1,5 +1,28 @@
-let users;
+/**
+ * On load, fetch users from web service
+ */
+window.addEventListener("load", () => {
+    fetch("http://localhost:3000/users")
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Error: " + response.status);
+            }
+        })
+        .then((data) => {
+            sortUsers(data);
+            populateSelectOptions(data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+});
 
+/**
+ * Sort users.json alphabetically by last name
+ */
+let users;
 const sortUsers = (usersJson) => {
     const sortedUsers = usersJson.sort((a, b) => {
         const lastNameA = a.name.split(" ").pop();
@@ -12,6 +35,9 @@ const sortUsers = (usersJson) => {
     console.log(users);
 };
 
+/**
+ * Populate select option with choose, sortedUsers, and other
+ */
 const populateSelectOptions = (sortedUsers) => {
     const selectReferrer = document.getElementById("referrer");
     const otherTextField = document.getElementById("other");
@@ -45,27 +71,11 @@ const populateSelectOptions = (sortedUsers) => {
     });
 };
 
-// On load, fetch users from web service
-window.addEventListener("load", () => {
-    fetch("http://localhost:3000/users")
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("Error: " + response.status);
-            }
-        })
-        .then((data) => {
-            sortUsers(data);
-            populateSelectOptions(data);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-});
 
+/**
+ * Add red dot to name validation failure
+ */
 const nameInput = document.getElementById("name");
-
 nameInput.addEventListener("input", () => {
     const errorDot = document.querySelector(".error-dot");
 
@@ -79,6 +89,10 @@ nameInput.addEventListener("input", () => {
     }
 });
 
+
+/**
+ * Submit form
+ */
 const submitForm = () => {
     const requestOptions = {
         method: "POST",
