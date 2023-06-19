@@ -91,7 +91,8 @@ nameInput.addEventListener("input", () => {
 /**
  * Submit form
  */
-const submitForm = () => {
+const submitForm = (event) => {
+    event.preventDefault();
     const nameField = document.getElementById("name");
     const nameValue = nameField.value;
     

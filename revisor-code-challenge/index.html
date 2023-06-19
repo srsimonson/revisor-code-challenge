@@ -41,7 +41,6 @@
                             id="email"
                             placeholder="email address"
                             name="email"
-                            pattern="/^(?!\.)[a-zA-Z0-9_\.\-]+@(?!-)[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)*(\.[a-zA-Z]{2,})$/"
                             required
                         />
                     </div>
@@ -61,7 +60,7 @@
                         </div>
                     </div>
                     <div class="form-item">
-                        <button type="submit" onclick="submitForm()">
+                        <button type="submit" onclick="submitForm(event)">
                             Sign up!
                         </button>
                     </div>
