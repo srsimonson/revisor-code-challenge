@@ -1,21 +1,30 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about {
     border: 2px solid #dcdcdc;
     border-radius: 10px;
-    padding: 16px;
+    padding: 15px;
     line-height: 1.2;
-    width: 50%;
-    margin: 20px;
+    width: 29%;
+    margin: 0px 5px 0px 60px;
 }
 
 .signup-form {
-    border: 1px solid blue;
-    padding: 2px;
-    width: 50%;
-    margin: 20px;
+    width: 20%;
+    margin: 0 10px;
 }
 
 .form-item {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 h1 {
@@ -23,14 +32,10 @@ h1 {
 }
 
 section {
-    border: 1px solid green;
-    padding: 2px;
     display: flex;
-}
-
-body {
-    border: 1px solid red;
-    padding: 2px;
+    margin: 80px 101px;
+    justify-content: flex-start;
+    max-height: 208px;
 }
 
 .error-dot {
@@ -41,4 +46,13 @@ body {
 #other {
     display: none;
     margin: 5px 0 20px;
+}
+
+input {
+    width: 100%;
+}
+
+input,
+select {
+    margin-top: 5px;
 }

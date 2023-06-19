@@ -43,7 +43,7 @@ const populateSelectOptions = (sortedUsers) => {
 
     // Create "choose person" option
     const choosePersonLabel = document.createElement("option");
-    choosePersonLabel.text = "Choose person";
+    choosePersonLabel.text = "choose person";
     choosePersonLabel.value = null;
     selectReferrer.add(choosePersonLabel);
 
