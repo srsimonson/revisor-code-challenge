@@ -58,12 +58,12 @@ const populateSelectOptions = (sortedUsers) => {
     // Create "Other" option
     const otherOption = document.createElement("option");
     otherOption.text = "Other";
-    otherOption.value = "0";
+    otherOption.value = "other";
     selectReferrer.add(otherOption);
 
     // Event listener to show/hide text field
     selectReferrer.addEventListener("change", () => {
-        if (selectReferrer.value === "0") {
+        if (selectReferrer.value === "other") {
             otherTextField.style.display = "block";
         } else {
             otherTextField.style.display = "none";
