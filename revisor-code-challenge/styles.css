@@ -22,7 +22,7 @@ body {
     margin: 0px 5px 0px 88px;
 }
 
-.signup-form {
+#signup-form {
     margin: 0 10px;
     width: 250px;
 }
@@ -58,4 +58,8 @@ input {
 input,
 select {
     margin-top: 5px;
+}
+
+select {
+    margin-bottom: 5px;
 }

@@ -18,7 +18,7 @@
                     as the compiler of Minnesota Statutes and is the official
                     publisher of Minnesota Statutes, Laws, and Rules.
                 </p>
-                <form class="signup-form">
+                <form id="signup-form">
                     <div class="form-item">
                         <label for="name">Name (required)</label>
                         <br />
@@ -26,7 +26,6 @@
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="full name"
                             maxlength="100"
                             pattern="[A-Za-z\s\-']+"
                             required
@@ -39,7 +38,6 @@
                         <input
                             type="email"
                             id="email"
-                            placeholder="email address"
                             name="email"
 							pattern="^(?:(?:(?:\r\n)?[ \t])*\r\n)?(?:[\x21-\x7E]|[\x80-\xFF][\x21-\x7E])*@(?:[\x21-\x7E]{1,63}|[\x80-\xFF]{1,63}(?:[\x21-\x7E]|[\x80-\xFF][\x21-\x7E])*\.)+(?:[A-Za-z]{2,}|[\x80-\xFF]{2,})(?:(?:(?:\r\n)?[ \t])*\r\n)?$"
                             required
@@ -53,7 +51,6 @@
                             <input
                                 type="text"
                                 id="other"
-                                placeholder="Who referred you?"
                                 name="other"
                                 maxlength="100"
                                 pattern="[A-Za-z\s\-']+"

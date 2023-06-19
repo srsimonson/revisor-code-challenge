@@ -1,5 +1,7 @@
+const signupForm = document.getElementById("signup-form");
 const referrerField = document.getElementById("referrer");
 const otherField = document.getElementById("other");
+const otherLabel = document.createElement("label");
 const nameField = document.getElementById("name");
 const emailField = document.getElementById("email");
 
@@ -43,7 +45,6 @@ const sortUsers = (usersJson) => {
  * Populate select option with choose, sortedUsers, and other
  */
 const populateSelectOptions = (sortedUsers) => {
-
     // Create "choose person" option
     const choosePersonLabel = document.createElement("option");
     choosePersonLabel.text = "choose person";
@@ -59,6 +60,8 @@ const populateSelectOptions = (sortedUsers) => {
     });
 
     // Create "Other" option
+    otherLabel.setAttribute("for", "other");
+    otherLabel.textContent = "Who referred you?";
     const otherOption = document.createElement("option");
     otherOption.text = "Other";
     otherOption.value = "other";
@@ -67,8 +70,11 @@ const populateSelectOptions = (sortedUsers) => {
     // Event listener to show/hide text field
     referrerField.addEventListener("change", () => {
         if (referrerField.value === "other") {
+            otherLabel.style.display = "block";
             otherField.style.display = "block";
+            otherField.parentNode.insertBefore(otherLabel, otherField);
         } else {
+            otherLabel.style.display = "none";
             otherField.style.display = "none";
         }
     });
@@ -122,24 +128,26 @@ const submitForm = (event) => {
 
     // If form inputs have value and the value is valid, then submit
     if (
-        nameValue && 
-        !nameField.validity.patternMismatch && 
+        nameValue &&
+        !nameField.validity.patternMismatch &&
         emailValue &&
         emailField.validity.valid
     ) {
         fetch("http://localhost:3000/submit", requestOptions)
-        .then((response) => {
-            if (response.ok) {
-                console.log(completedForm)
-                console.log("Form submitted successfully");
-            } else {
-                console.error("Error:", response.status);
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-
+            .then((response) => {
+                if (response.ok) {
+                    console.log(completedForm);
+                    console.log("Form submitted successfully");
+                } else {
+                    console.error("Error:", response.status);
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+        signupForm.reset();            
+        otherLabel.style.display = "none";
+        otherField.style.display = "none";
     } else {
         console.log("Fail submit: form inputs not valid");
     }
