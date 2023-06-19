@@ -23,10 +23,10 @@ Included is a node.js web service to use for one of the page elements.
     [x] validate that the email address is of the correct format
 
 [] An optional field for the user to select a person from a list that is referred them
-    [] On page load, populate the list of people from a call to the provided web service (http://localhost:3000/users)
-    [] Sort the list of people alphabetically by their last name which appears in the "name" attibute of the returned JSON objects
-    [] Use the "name" attribute as the display that the user will use to select
-    [] Use the associated "id" attribute as the value submitted by the registration form
+    [x] On page load, populate the list of people from a call to the provided web service (http://localhost:3000/users)
+    [x] Sort the list of people alphabetically by their last name which appears in the "name" attibute of the returned JSON objects
+    [x] Use the "name" attribute as the display that the user will use to select
+    [x] Use the associated "id" attribute as the value submitted by the registration form
     [] Provide an option to choose "other." If a user selects "other," insert a labeled field for the user to enter the name of the person who referred them
     [] The inserted "other referrer field should behave the same way as the name field for item 1.
 
