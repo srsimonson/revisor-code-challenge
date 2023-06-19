@@ -1,3 +1,8 @@
+const referrerField = document.getElementById("referrer");
+const otherField = document.getElementById("other");
+const nameField = document.getElementById("name");
+const emailField = document.getElementById("email");
+
 /**
  * On load, fetch users from web service
  */
@@ -38,35 +43,33 @@ const sortUsers = (usersJson) => {
  * Populate select option with choose, sortedUsers, and other
  */
 const populateSelectOptions = (sortedUsers) => {
-    const selectReferrer = document.getElementById("referrer");
-    const otherTextField = document.getElementById("other");
 
     // Create "choose person" option
     const choosePersonLabel = document.createElement("option");
     choosePersonLabel.text = "choose person";
     choosePersonLabel.value = null;
-    selectReferrer.add(choosePersonLabel);
+    referrerField.add(choosePersonLabel);
 
     // Loop through sorted users and create options
     sortedUsers.forEach((user) => {
         const option = document.createElement("option");
         option.text = user.name;
         option.value = user.id;
-        selectReferrer.add(option);
+        referrerField.add(option);
     });
 
     // Create "Other" option
     const otherOption = document.createElement("option");
     otherOption.text = "Other";
     otherOption.value = "other";
-    selectReferrer.add(otherOption);
+    referrerField.add(otherOption);
 
     // Event listener to show/hide text field
-    selectReferrer.addEventListener("change", () => {
-        if (selectReferrer.value === "other") {
-            otherTextField.style.display = "block";
+    referrerField.addEventListener("change", () => {
+        if (referrerField.value === "other") {
+            otherField.style.display = "block";
         } else {
-            otherTextField.style.display = "none";
+            otherField.style.display = "none";
         }
     });
 };
@@ -74,13 +77,12 @@ const populateSelectOptions = (sortedUsers) => {
 /**
  * Add red dot to name validation failure
  */
-const nameInput = document.getElementById("name");
-nameInput.addEventListener("input", () => {
+nameField.addEventListener("input", () => {
     const errorDot = document.querySelector(".error-dot");
 
     if (
-        nameInput.validity.patternMismatch ||
-        nameInput.value.length === nameInput.maxLength
+        nameField.validity.patternMismatch ||
+        nameField.value.length === nameField.maxLength
     ) {
         errorDot.style.display = "inline";
     } else {
@@ -93,30 +95,22 @@ nameInput.addEventListener("input", () => {
  */
 const submitForm = (event) => {
     event.preventDefault();
-    const nameField = document.getElementById("name");
-    const nameValue = nameField.value;
-    
-    const emailField = document.getElementById("email");
-    const emailValue = emailField.value;
-
-    const referrerField = document.getElementById("referrer");
-
-    const otherField = document.getElementById("other");
+    const nameValue = nameField.value.trim();
+    const emailValue = emailField.value.trim();
 
     let referrerValue;
 
-
-    if (referrerField.value === 'other') {
+    if (referrerField.value === "other") {
         referrerValue = otherField.value;
     } else {
         referrerValue = referrerField.value;
     }
 
     const completedForm = {
-        name: nameValue.trim(),
-        email: emailValue.trim(),
-        referrer: '' + referrerValue.trim()
-    }
+        name: nameValue,
+        email: emailValue,
+        referrer: "" + referrerValue.trim(),
+    };
 
     const requestOptions = {
         method: "POST",
@@ -126,11 +120,17 @@ const submitForm = (event) => {
         body: JSON.stringify(completedForm),
     };
 
-    console.log(requestOptions);
-
-    fetch("http://localhost:3000/submit", requestOptions)
+    // If form inputs have value and the value is valid, then submit
+    if (
+        nameValue && 
+        !nameField.validity.patternMismatch && 
+        emailValue &&
+        emailField.validity.valid
+    ) {
+        fetch("http://localhost:3000/submit", requestOptions)
         .then((response) => {
             if (response.ok) {
+                console.log(completedForm)
                 console.log("Form submitted successfully");
             } else {
                 console.error("Error:", response.status);
@@ -139,4 +139,8 @@ const submitForm = (event) => {
         .catch((error) => {
             console.error("Error:", error);
         });
+
+    } else {
+        console.log("Fail submit: form inputs not valid");
+    }
 };
